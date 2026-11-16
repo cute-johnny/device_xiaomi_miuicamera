@@ -1,6 +1,7 @@
 type sysfs_camera, fs_type, sysfs_type;
 
 binder_call(hal_camera_default, platform_app)
+binder_call(hal_camera_default, platform_app_36)
 binder_call(hal_camera_default, cameraserver)
 
 allow hal_camera_default mnt_vendor_file:dir { search };
