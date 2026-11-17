@@ -26,3 +26,10 @@ PRODUCT_COPY_FILES += \
 # Lock-screen camera: MiuiCamera .Camera is the default STILL_IMAGE_CAMERA_SECURE handler
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/preferred-apps-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/preferred-apps/miuicamera.xml
+
+# Preload the MiuiCamera process (no UI) on screen-on so the lock-screen shortcut starts warm
+# (frameworks/base AppPreloader; off switch: setprop persist.sys.app_preload false)
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.config.app_preload.component=com.android.camera/.PreloadReceiver \
+    ro.config.app_preload.action=miui.intent.action.POPUP_UPDOWN_FAILED \
+    ro.config.app_preload.min_avail_mb=1536
