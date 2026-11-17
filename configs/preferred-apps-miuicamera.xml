@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default handler for the lock-screen camera intent. MiuiCamera declares
+     STILL_IMAGE_CAMERA_SECURE on both .Camera and .AssistantCamera; without a
+     preference SystemUI gets the chooser and takes the dismiss-keyguard path. -->
+<preferred-activities>
+    <item name="com.android.camera/.Camera" match="100000" always="true" set="2">
+        <set name="com.android.camera/.Camera" />
+        <set name="com.android.camera/.AssistantCamera" />
+        <filter>
+            <action name="android.media.action.STILL_IMAGE_CAMERA_SECURE" />
+            <cat name="android.intent.category.DEFAULT" />
+        </filter>
+    </item>
+</preferred-activities>
