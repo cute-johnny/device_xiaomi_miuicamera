@@ -9,3 +9,6 @@ binder_call(platform_app_36, hal_camera_default)
 allow platform_app_36 vendor_audio_prop:file { open read getattr map };
 allow platform_app_36 vendor_camera_sensor_prop:file { open read getattr map };
 allow platform_app_36 vendor_camera_p3enable_prop:file { open read getattr map };
+
+# MiuiCamera reads vendor.panel.* (display panel info) at startup.
+get_prop(platform_app_36, vendor_panel_info_prop)
